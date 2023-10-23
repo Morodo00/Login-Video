@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login + Video</title>
+</head>
+<head>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+
+        video {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        #registro {
+            text-align: center;
+            position: absolute;
+            top: 20%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            max-width: 400px;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.7);
+            border: 1px solid #ccc;
+        }
+
+        #formulario {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <video autoplay loop muted>
+        <source src="video.mp4" type="video/mp4">
+        Tu navegador no admite la reproducción de videos.
+    </video>
+
+    <div id="registro">
+        <h2>Registro de Usuario</h2>
+        <form id="formulario"><br>
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" name="nombre" required>
+            <br>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+            <br>
+            <button type="button" id="enviar">Registrar</button>
+        </form>
+    </div>
+
+    <script>
+        //Se muestra la informacion por consola
+        const enviarBoton = document.getElementById('enviar');
+
+        enviarBoton.addEventListener('click', function () {
+            const nombre = document.getElementById('nombre').value;
+            const email = document.getElementById('email').value;
+
+            const usuario = {
+                nombre: nombre,
+                email: email
+            };
+
+            const usuarioJSON = JSON.stringify(usuario);
+
+            console.log(usuarioJSON);
+        });
+    </script>
+</body>
+</html>
+
+
